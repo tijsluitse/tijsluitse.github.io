@@ -293,11 +293,11 @@ footer > address {
 	}
 
 	body > header nav {
-		box-shadow: inset 0px 5px 10px rgba(50,60,75,1);
-		-webkit-box-shadow: inset 0px 5px 10px rgba(50,60,75,1);
-		-moz-box-shadow: inset 0px 5px 10px rgba(50,60,75,1);
-		-ms-box-shadow: inset 0px 5px 10px rgba(50,60,75,1);
-		-o-box-shadow: inset 0px 5px 10px rgba(50,60,75,1);
+		box-shadow: inset 0px 5px 10px rgb(44, 49, 56);;
+		-webkit-box-shadow: inset 0px 5px 10px rgb(44, 49, 56);;
+		-moz-box-shadow: inset 0px 5px 10px rgb(44, 49, 56);;
+		-ms-box-shadow: inset 0px 5px 10px rgb(44, 49, 56);;
+		-o-box-shadow: inset 0px 5px 10px rgb(44, 49, 56);;
 	}
 
 	body > header nav ul {
