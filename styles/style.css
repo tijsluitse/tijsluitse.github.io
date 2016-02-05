@@ -302,7 +302,7 @@ footer > address {
 	    -webkit-flex-direction: row;
 	    padding: 10px;
 	    -webkit-flex-wrap: wrap;
-	    height: 160px;
+	    height: 150px;
 	    overflow: scroll;
 	}
 
