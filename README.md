@@ -1,3 +1,4 @@
 # CSS-to-the-Rescue
 ## HTML voor de CSS to the Rescue opdracht
-### Door: Tijs Luitse
+
+[Link](http://tijsluitse.github.io/)

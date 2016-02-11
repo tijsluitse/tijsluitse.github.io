@@ -84,9 +84,9 @@ h1, h2, h3, h4 {
 	color: black;
 }
 
-a {
+a, span {
 	text-decoration: none;
-	color: rgba(255, 255, 255, 0.85);
+	color: black;
 }
 
 ul {
@@ -125,9 +125,45 @@ main > section {
 	display: block;
 }
 
+/********/
+/* LIST */
+/********/
 
+#photoGallery {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	flex-wrap: wrap;
+}
 
+#photoGallery li {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 25%;
+    box-sizing: border-box;
+}
 
+#photoGallery li a {
+	width: max-content;
+	padding: 20px;
+}
+
+#photoGallery li a img {
+	width: 100%;
+}
+
+/*****************/
+/* MEDIA QUERIES */
+/*****************/
+
+@media (max-width: 600px) {
+
+	#photoGallery li {
+		width: 100%;
+	}
+
+}
 
 
 
