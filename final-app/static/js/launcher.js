@@ -45,31 +45,23 @@ var errorMessageTarget = document.getElementById('errorMessage');
 			routie({
 
 			    'popularMedia': function() {
-			    	photoGallery.popularPosts();
-			    	
-			    	setTimeout(function() {
-			    	 	photoGallery.shake();
-			    	}, 2000);			    	
-			    	
+			    	photoGallery.popularPosts();			    	    				    	
 			    	sections.toggle(this.path);
 			    },
 
 			    'searchPhotos': function() {
-			    	sections.toggle(this.path);
-			    	photoShuffle.stop();
+			    	sections.toggle(this.path);			    	
 			    },
 
 			    'single/:id': function(photoId) {
 			    	photoGallery.singlePhoto(photoId);
-			   	 	sections.toggle('singlePhoto');
-			   	 	photoShuffle.stop();
+			   	 	sections.toggle('singlePhoto');			   	 	
 			    },
 
 			    'user/:username': function(userId){
 			    	single.userInfo(userId);
 			    	single.userFeed(userId);
-			    	sections.toggle('singleUser');
-			    	photoShuffle.stop();
+			    	sections.toggle('singleUser');			    	
 			    }
 
 			});
@@ -137,6 +129,10 @@ var errorMessageTarget = document.getElementById('errorMessage');
 			    })
 
 			.go();
+
+			setTimeout(function() {
+	    	 	photoGallery.shake();
+	    	}, 2000);		
 
 		},
 
