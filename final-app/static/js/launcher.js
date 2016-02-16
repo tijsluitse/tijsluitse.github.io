@@ -104,23 +104,24 @@ var errorMessageTarget = document.getElementById('errorMessage');
 
 			    	console.log(data);
 
-			    	//listen to shake event
-				    var myShakeEvent = new Shake ({
-				    	threshold: 15
+			    	// listen to shake event
+				    var photoShuffle = new Shake ({
+				    	threshold: 15, // shake strength threshold
+				    	timeout: 1000 // determines the frequency of event generation
 				    });
 
-				    myShakeEvent.start();
+				    photoShuffle.start();
 				   
 				    window.addEventListener('shake', function() {
 				        alert('Shaked');
+				        
+				        // stop listening
+					    stopShake: function(){
+					        photoShuffle.stop();
+					    }
 				    }, false);
 
-				    //stop listening
-				    function stopShake(){
-				        myShakeEvent.stop();
-				    }
-
-				    //check if shake is supported or not.
+				    // check if shake is supported or not.
 				    if (!('ondevicemotion' in window)){
 				    	alert('Not Supported');
 				    };
