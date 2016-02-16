@@ -46,6 +46,7 @@ var errorMessageTarget = document.getElementById('errorMessage');
 
 			    'popularMedia': function() {
 			    	photoGallery.popularPosts();
+			    	photoGallery.shake();
 			    	sections.toggle(this.path);
 			    },
 
@@ -104,28 +105,6 @@ var errorMessageTarget = document.getElementById('errorMessage');
 
 			    	console.log(data);
 
-			    	// listen to shake event
-				    var photoShuffle = new Shake ({
-				    	threshold: 15, // shake strength threshold
-				    	timeout: 1000 // determines the frequency of event generation
-				    });
-
-				    photoShuffle.start();
-				   
-				    window.addEventListener('shake', function() {
-				        alert('Shaked');
-				        
-				        // stop listening
-					    stopShake: function(){
-					        photoShuffle.stop();
-					    }
-				    }, false);
-
-				    // check if shake is supported or not.
-				    if (!('ondevicemotion' in window)){
-				    	alert('Not Supported');
-				    };
-
 			        var directives = {
 			      			       
 			        	photoLink: {
@@ -151,6 +130,30 @@ var errorMessageTarget = document.getElementById('errorMessage');
 			    })
 
 			.go();
+
+		},
+
+		shake: function() {
+
+			console.log('Shake function loaded');
+
+			// listen to shake event
+		    var photoShuffle = new Shake ({
+		    	threshold: 15, // shake strength threshold
+		    	timeout: 1000 // determines the frequency of event generation
+		    });
+
+		    photoShuffle.start();
+		   
+		    window.addEventListener('shake', function() {
+		        alert('Shaked');
+		        photoShuffle.stop();
+		    }, false);
+
+		    // check if shake is supported or not.
+		    if (!('ondevicemotion' in window)){
+		    	alert('Not Supported');
+		    };
 
 		},
 
