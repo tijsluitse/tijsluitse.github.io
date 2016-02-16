@@ -46,23 +46,30 @@ var errorMessageTarget = document.getElementById('errorMessage');
 
 			    'popularMedia': function() {
 			    	photoGallery.popularPosts();
-			    	photoGallery.shake();
+			    	
+			    	setTimeout(function() {
+			    	 	photoGallery.shake();
+			    	}, 2000);			    	
+			    	
 			    	sections.toggle(this.path);
 			    },
 
 			    'searchPhotos': function() {
 			    	sections.toggle(this.path);
+			    	photoShuffle.stop();
 			    },
 
 			    'single/:id': function(photoId) {
 			    	photoGallery.singlePhoto(photoId);
 			   	 	sections.toggle('singlePhoto');
+			   	 	photoShuffle.stop();
 			    },
 
 			    'user/:username': function(userId){
 			    	single.userInfo(userId);
 			    	single.userFeed(userId);
 			    	sections.toggle('singleUser');
+			    	photoShuffle.stop();
 			    }
 
 			});
@@ -146,8 +153,49 @@ var errorMessageTarget = document.getElementById('errorMessage');
 		    photoShuffle.start();
 		   
 		    window.addEventListener('shake', function() {
-		        alert('Shaked');
-		        photoShuffle.stop();
+		        
+			    aja()
+					.url('https://api.instagram.com/v1/media/popular?access_token=806401368.5aa13be.4a08df065cbb41469c9cc20041432d3b')
+				    .type('jsonp')
+				    .cache('false')
+				    .on('success', function(data){			    
+				    	
+				    	var data = data.data;
+				   
+				    	var filteredData = _.map(data, function(photoInfo){
+				    		return _.pick(photoInfo, 'id', 'link', 'likes', 'user', 'images', 'tags', 'title');
+				    	});
+
+				    	data = filteredData;
+
+				    	console.log(data);
+
+				        var directives = {
+				      			       
+				        	photoLink: {
+				        		href: function(params) {
+				        			return '#single/' + this.id;			        		
+				        		}
+				        	},
+				        	photoImage: {
+				        		src: function(params) {
+				        			return this.images.low_resolution.url;
+				        		}			        	
+				        	},
+				        	photoTags: {
+				        		text: function(params) {
+				        			return this.tags;
+				        		}
+				        	}
+				        	
+						}
+
+						Transparency.render(popularPostsTarget, data, directives);
+
+				    })
+
+				.go();
+
 		    }, false);
 
 		    // check if shake is supported or not.
