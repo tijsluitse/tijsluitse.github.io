@@ -85,7 +85,7 @@ main span {
 header[role="navigation"] {
 	width: 20%;
 	display: -webkit-flex;
-	box-shadow: 0px -.2em 1em rgba(50,60,75,1);
+	box-shadow: 0 -.2em 1em rgba(50,60,75,1);
 	text-align: center;
 	padding-top: 2em;
 	-webkit-flex-direction: column;
@@ -120,7 +120,7 @@ header[role="navigation"] p,
 header[role="navigation"] em {
 	font-size: 1.3em;
 	font-weight: 700;
-	padding: 1em 0px 2em 0px;
+	padding: 1em 0 2em 0;
 	color: white;
 }
 
@@ -168,7 +168,7 @@ main[role="content"] {
 	-webkit-flex-direction: column;
 	-webkit-justify-content: -webkit-flex-end;
 	justify-content: -webkit-flex-end;
-	padding: 0px 0px 0px 0.5%;
+	padding: 0 0 0 0.5%;
 }
 
 main[role="content"] h1,
@@ -181,7 +181,7 @@ main[role="content"] header {
 	background-color: white;
     position: relative;
     left: -4em;
-    margin-bottom: 1em;
+    margin-bottom: 2em;
     z-index: 1;
 }
 
@@ -198,6 +198,10 @@ main[role="content"] > article:last-of-type {
 /********/
 /* FORM */
 /********/
+
+form[role="form"] {
+	max-width: max-content;
+}
 
 form[role="form"] h3 {
 	font-weight: 200;
@@ -357,7 +361,7 @@ button[role="button"]:focus {
 svg {
 	fill: rgba(60,190,178,1);
 	fill: rgba(60,190,178,1);
-    margin-right: 10px;
+    margin-right: 1em;
     position: relative;
     top: 5px;
     transition: all .5s ease-in;
@@ -384,7 +388,7 @@ figure figcaption {
 }
 
 img:hover + figcaption {
-	top: 0px;
+	top: 0;
 }
 
 #photo-albums img,
@@ -420,11 +424,11 @@ img:hover + figcaption {
 
 .effect-01 img {
 	filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncA type="table" tableValues="0 0.5" /></feComponentTransfer></filter></svg>#filter');
-	filter: opacity(50%);
-	-webkit-filter: opacity(50%);
-	-moz-filter: opacity(50%);
-	-o-filter: opacity(50%);
-	-ms-filter: opacity(50%);
+	filter: grayscale(1);
+	-webkit-filter: grayscale(1);
+	-moz-filter: grayscale(1);
+	-o-filter: grayscale(1);
+	-ms-filter: grayscale(1);
 }
 
 .effect-02 img {
@@ -463,6 +467,14 @@ img:hover + figcaption {
 	-ms-filter: invert(1);
 }
 
+/************/
+/* PASSWORD */
+/************/
+
+#password {
+	max-width: max-content;
+}
+
 /***************/
 /* PHOTO ALBUM */
 /***************/
@@ -473,6 +485,7 @@ img:hover + figcaption {
 	flex-wrap: wrap;
 	align-content: flex-start;
 	justify-content: space-between;
+	max-width: max-content;
 }
 
 #photo-albums header {
@@ -485,7 +498,6 @@ img:hover + figcaption {
 
 #photo-albums figure img {
 	width: 100%;
-	max-width: max-content;
 }
 
 /****************/
@@ -510,7 +522,6 @@ img:hover + figcaption {
 
 #find-friends figure img {
 	width: 100%;
-	max-width: max-content;
 }
 
 /**********/
@@ -519,7 +530,7 @@ img:hover + figcaption {
 
 footer[role="contactInfo"] {
 	background-color: rgba(56, 61, 68, 1);
-    box-shadow: 0px .2em 1em rgba(50,60,75,1);
+    box-shadow: 0 .2em 1em rgba(50,60,75,1);
     border-top: .1em solid rgba(255, 255, 255, 0.1);
 	width: 100%;
 	display: -webkit-flex;
@@ -565,16 +576,12 @@ footer[role="contactInfo"] > address {
 
 .loader {
 	width: 100px;
-    height: 100px;
-    top: 50%;
-    left: 50%;
-    margin-top: -50px;
-    margin-left: -50px;
-    position: fixed;
-    z-index: 100000;
+	height: 100px;
+	margin: auto;
+	margin-bottom: 2em;
     background: url(http://dabblet.com/img/loader.png) 0 0;
     animation: loader 1s infinite steps(8);
-    opacity: 0;
+    opacity: 1;
 }
 
 @keyframes loader {
@@ -600,7 +607,7 @@ input[type="checkbox"] + label::before {
 	width: 1.2em;
 	height: 1.2em;
 	margin-right: 1em;
-	border-radius: 0px;
+	border-radius: 0;
 	background: transparent;
 	text-indent: .15em;
 	line-height: 1.2em;
@@ -680,7 +687,7 @@ input[type="checkbox"]:disabled + label::before {
 	}
 
 	#profile-picture figure > img {
-		max-width: 100%;
+		width: 100%;
 	}
 	
 	footer[role="contactInfo"] {
@@ -726,8 +733,12 @@ input[type="checkbox"]:disabled + label::before {
 		width: 100%;
 	}
 
-	form label span {
+	form[role="form"] label span {
 		width: 100%;
+	}
+
+	figure figcaption {
+		top: 0;
 	}
 }
 
