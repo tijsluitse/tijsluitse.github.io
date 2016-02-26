@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+
+	<title>Funda - Zoeken op locatie</title>
+	
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+	<header role="header">
+		<a href="index.html">
+			<img src="img/funda-logo.svg" alt="Funda Logo">
+		</a>
+	</header>
+
+	<div id="introduction">
+		<img src="img/woning.svg" alt="Funda Introduction">
+		<h1>Zoek nu naar jouw droomhuis in de buurt!</h1>
+	</div>
+
+	<nav id="navigation" class="navBlock">
+		<ul>
+			<li><a id="buyTab" class="navButton btn" href="#buyHouses">Koop</a></li>
+			<li><a id="rentTab" class="navButton btn" href="#rentHouses">Huur</a></li>
+		</ul>
+	</nav>
+
+	<div id="locationInfo" class="navBlock">
+		<p>Uw Locatie: <span id="userLocation">Proberen we op te zoeken...</span></p>
+	</div>
+
+	<main id="content">
+		
+		<section id="rentHouses">
+
+			<header id="rentRangeInfo" class="rangeInfo"> 
+				<button class="minCount btn">-</button>
+				<span class="range">+ 1 km</span>
+				<button class="plusCount btn">+</button>
+				<p id="rentResults"></p>
+			</header>
+
+			<div class="loader">
+				<div class="spinner"></div>
+			</div>
+
+			<ul id="rentList" role="itemsList" >
+				<li data-bind="houseItem" class="houseItem">
+					<a data-bind="houseLink" class="houseLink">
+						<img data-bind="housePhoto" class="housePhoto">
+						<div class="houseInfo">
+							<a class="mapsLink" data-bind="mapsLink">
+								<span data-bind="houseAddress" class="houseAddress"></span>
+								<span data-bind="houseCity" class="houseCity"></span>
+							</a>
+							<span data-bind="houseType" class="houseType"></span>
+							<div data-bind="housePrice" class="housePrice"></div>
+						</div>
+					</a>
+				</li>
+			</ul>
+
+		</section>
+
+		<section id="buyHouses">
+
+			<header id="buyRangeInfo" class="rangeInfo">
+				<button class="minCount btn">-</button>
+				<span class="range">+ 1 km</span>
+				<button class="plusCount btn">+</button>
+				<p id="buyResults"></p>
+			</header>
+
+			<div class="loader">
+				<div class="spinner"></div>
+			</div>
+
+			<ul id="buyList" role="itemsList" >
+				<li data-bind="houseItem" class="houseItem">
+					<a data-bind="houseLink" class="houseLink">
+						<img data-bind="housePhoto" class="housePhoto">
+						<div class="houseInfo">
+							<a class="mapsLink" data-bind="mapsLink">
+								<span data-bind="houseAddress" class="houseAddress"></span>
+								<span data-bind="houseCity" class="houseCity"></span>
+							</a>
+							<span data-bind="houseType" class="houseType"></span>
+							<div data-bind="housePrice" class="housePrice"></div>
+						</div>
+					</a>
+				</li>
+			</ul>
+
+		</section>
+
+		<div id="errorMessage">
+			<p class="error"></p>
+		</div>
+
+	</main>
+
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWh2MO0K3ELp8nWsdiXYnofjm67Gs5LfY&signed_in=true"
+        async defer>
+    </script>
+
+	<!-- Scripts -->
+	<script src="static/libs/fastclick.js"></script>
+	<script src="static/libs/hammer-min.js"></script>
+	<script src="static/libs/shake.js"></script>
+	<script src="static/libs/transparency.min.js"></script>
+	<script src="static/libs/aja.min.js"></script>
+	<script src="static/libs/routie.js"></script>
+	<script src="static/libs/underscore-min.js"></script>
+
+	<!-- Modules -->
+	<script src="static/modules/config.js"></script>
+	<script src="static/modules/elements.js"></script>
+	<script src="static/modules/location.js"></script>
+	<script src="static/modules/views.js"></script>
+	<script src="static/modules/getdata.js"></script>
+	<script src="static/modules/animations.js"></script>
+	<script src="static/modules/routes.js"></script>
+	<script src="static/modules/gestures.js"></script>
+
+	<!-- Launcher -->
+	<script src="static/modules/launcher.js"></script>
+
+</body>
+</html>
+
+
+
+
